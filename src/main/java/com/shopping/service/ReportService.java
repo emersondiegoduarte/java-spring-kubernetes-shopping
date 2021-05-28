@@ -7,10 +7,12 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.shopping.dto.ShopDTO;
+import com.shopping.dto.DTOConverter;
 import com.shopping.dto.ShopReportDTO;
 import com.shopping.entity.Shop;
 import com.shopping.repository.ShopRepository;
+
+import dto.ShopDTO;
 
 @Service
 public class ReportService {
@@ -23,7 +25,7 @@ public class ReportService {
 		
 		List<Shop> lista = shopRepository.getShopByFilters(dataInicio, dataFim, valorMinimo);
 		return lista.stream()
-				.map(ShopDTO::convert)
+				.map(DTOConverter::convert)
 				.collect(Collectors.toList());
 		
 	}

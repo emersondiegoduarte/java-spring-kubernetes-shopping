@@ -16,10 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shopping.dto.ShopDTO;
 import com.shopping.dto.ShopReportDTO;
 import com.shopping.service.ReportService;
 import com.shopping.service.ShopService;
+
+import dto.ShopDTO;
 
 @RestController
 public class ShopController {

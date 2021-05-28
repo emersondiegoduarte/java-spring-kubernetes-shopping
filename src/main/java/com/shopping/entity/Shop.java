@@ -2,7 +2,6 @@ package com.shopping.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -12,8 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-
-import com.shopping.dto.ShopDTO;
 
 @Entity(name = "shop")
 public class Shop {
@@ -85,16 +82,4 @@ public class Shop {
 		this.itens = itens;
 	}
 	
-	public	static	Shop convert(ShopDTO	shopDTO) {
-		Shop shop =	new	Shop();
-		shop.setUserIdentifier(shopDTO.getUserIdentifier());
-		shop.setTotal(shopDTO.getTotal());
-		shop.setDate(shopDTO.getDate());
-		shop.setItens(shopDTO
-						.getItens()
-						.stream()
-						.map(Item::convert)
-						.collect(Collectors.toList()));
-		return	shop;
-	}
 }

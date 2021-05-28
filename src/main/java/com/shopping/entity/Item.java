@@ -2,8 +2,6 @@ package com.shopping.entity;
 
 import javax.persistence.Embeddable;
 
-import com.shopping.dto.ItemDTO;
-
 @Embeddable
 public class Item {
 	
@@ -28,12 +26,4 @@ public class Item {
 	}
 	
 	
-	public	static	Item	convert(ItemDTO	itemDTO) {
-		Item item	=	new	Item();
-		item.setProductIdentifier(itemDTO.getProductIdentifier());
-		item.setPrice(itemDTO.getPrice());
-		return	item;
-}
-	
-
 }
