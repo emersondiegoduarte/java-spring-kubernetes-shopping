@@ -23,4 +23,16 @@ public class UserService {
 		
 	}
 	
+	public UserDTO getUserByCpfAndKey(String cpf, String key) {
+		try {
+			RestTemplate rest = new RestTemplate();
+			String url = "http://localhost:8080/users/" + cpf+ "?key=" + key;
+			ResponseEntity<UserDTO> response = rest.getForEntity(url, UserDTO.class);
+			return response.getBody();
+		} catch (HttpClientErrorException.NotFound e) {
+			throw new UserNotFoundException();
+		}
+		
+	}
+	
 }
